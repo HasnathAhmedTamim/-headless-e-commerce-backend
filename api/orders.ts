@@ -4,6 +4,16 @@ import { connectDB } from '../src/config/db';
 import Order from '../src/models/Order';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Set CORS headers for all responses
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).end();
+    return;
+  }
+
   try {
     await connectDB();
     if (req.method === 'GET') {
