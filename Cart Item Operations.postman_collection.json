@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "fdbb00d7-d0d6-4a1a-af0e-a47ad2ca2844",
+		"name": "Cart Item Operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31892953",
+		"_collection_link": "https://galactic-rocket-672451.postman.co/workspace/My-Workspace~09ec7510-21a8-49bb-8e06-64931096f09e/collection/31892953-fdbb00d7-d0d6-4a1a-af0e-a47ad2ca2844?action=share&source=collection_link&creator=31892953"
+	},
+	"item": [
+		{
+			"name": "Create Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/carts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Item to Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"productId\": \"<productId>\",\n  \"variantId\": \"<variantId>\",\n  \"quantity\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/carts/<cartId>/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts",
+						"<cartId>",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Carts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/carts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cart By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/carts/<cartId>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts",
+						"<cartId>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Item Quantity",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"quantity\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/carts/<cartId>/items/<itemId>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts",
+						"<cartId>",
+						"items",
+						"<itemId>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Item from Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/carts/<cartId>/items/<itemId>",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts",
+						"<cartId>",
+						"items",
+						"<itemId>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apply Promo Code",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"SAVE10\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/carts/{{cartId}}/apply-promo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts",
+						"{{cartId}}",
+						"apply-promo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cart Totals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/carts/{{cartId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"carts",
+						"{{cartId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Checkout (Create Order)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cartId\": \"{{cartId}}\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
