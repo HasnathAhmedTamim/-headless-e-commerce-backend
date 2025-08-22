@@ -1,3 +1,12 @@
+// Get all carts
+export async function getAllCarts(req: Request, res: Response) {
+    try {
+        const carts = await Cart.find();
+        res.status(200).json({ carts });
+    } catch (err) {
+        res.status(500).json({ error: err instanceof Error ? err.message : String(err) });
+    }
+}
 import mongoose from "mongoose";
 import { z } from "zod";
 import Cart from "../models/Cart";

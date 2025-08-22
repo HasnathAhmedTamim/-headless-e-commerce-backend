@@ -1,0 +1,116 @@
+{
+  "info": {
+    "name": "Cart Item Operations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/carts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "carts"]
+        }
+      }
+    },
+    {
+      "name": "Add Item to Cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": \"<productId>\",\n  \"variantId\": \"<variantId>\",\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/carts/<cartId>/items",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "carts", "<cartId>", "items"]
+        }
+      }
+    },
+      {
+        "name": "Get All Carts",
+        "request": {
+          "method": "GET",
+          "header": [
+            { "key": "Content-Type", "value": "application/json", "type": "text" }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/carts",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "carts"]
+          }
+        }
+      },
+      {
+        "name": "Get Cart By ID",
+        "request": {
+          "method": "GET",
+          "header": [
+            { "key": "Content-Type", "value": "application/json", "type": "text" }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/carts/<cartId>",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "carts", "<cartId>"]
+          }
+        }
+      },
+    {
+      "name": "Update Item Quantity",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quantity\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/carts/<cartId>/items/<itemId>",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "carts", "<cartId>", "items", "<itemId>"]
+        }
+      }
+    },
+    {
+      "name": "Remove Item from Cart",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Content-Type", "value": "application/json", "type": "text" }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/carts/<cartId>/items/<itemId>",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "carts", "<cartId>", "items", "<itemId>"]
+        }
+      }
+    }
+  ]
+}

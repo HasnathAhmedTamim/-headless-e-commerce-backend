@@ -1,11 +1,13 @@
 import express from 'express';
-import { addToCart, createCart, updateItem, removeItem, applyPromo } from '../controllers/cart';
+import { addToCart, createCart, updateItem, removeItem, applyPromo, getAllCarts } from '../controllers/cart';
 
 const router = express.Router();
 
 
 // POST /api/carts - create a new cart
 router.post('/', createCart);
+// GET /api/carts - list all carts
+router.get('/', getAllCarts);
 
 // GET /api/carts/:id - get cart and totals
 import { getCart } from '../controllers/cart';
