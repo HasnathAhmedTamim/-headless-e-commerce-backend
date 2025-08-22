@@ -10,22 +10,19 @@ async function seed() {
 
   await Product.deleteMany({});
   await Promo.deleteMany({});
+  const Variant = (await import("../models/Variant")).default;
+  await Variant.deleteMany({});
 
-  await Product.create([
-    {
-      name: "T-shirt",
-      variants: [
-        { name: "M", price: 20 },
-        { name: "L", price: 22 }
-      ]
-    },
-    {
-      name: "Shoes",
-      variants: [
-        { name: "9", price: 50 },
-        { name: "10", price: 55 }
-      ]
-    }
+  // Create products first
+  const tshirt = await Product.create({ name: "T-shirt" });
+  const shoes = await Product.create({ name: "Shoes" });
+
+  // Create variants for each product
+  await Variant.create([
+    { productId: tshirt._id, title: "M", price: 20, currency: "BDT", stock: 100 },
+    { productId: tshirt._id, title: "L", price: 22, currency: "BDT", stock: 100 },
+    { productId: shoes._id, title: "9", price: 50, currency: "BDT", stock: 50 },
+    { productId: shoes._id, title: "10", price: 55, currency: "BDT", stock: 50 }
   ]);
 
   await Promo.create([
