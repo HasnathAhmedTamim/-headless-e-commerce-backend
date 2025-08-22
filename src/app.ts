@@ -82,6 +82,15 @@ const openApiDoc = generator.generateDocument({
 });
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(openApiDoc));
 
+
+// Root route
+app.get('/', (req, res) => {
+	res.send('API is running');
+});
+
+// Favicon route
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 // Main API routes
 app.use("/api", router);
 
