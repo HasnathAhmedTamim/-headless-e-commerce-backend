@@ -17,8 +17,30 @@ import Promo from "./models/Promo";
 	]);
 
 	await Promo.create([
-		{ code: "SAVE10", type:"percent", value:10, startsAt:new Date("2025-01-01"), endsAt:new Date("2025-12-31"), active:true },
-		{ code: "FLAT200", type:"fixed", value:200, startsAt:new Date("2025-01-01"), endsAt:new Date("2025-12-31"), active:true }
+		{
+			code: "WELCOME5",
+			discountType: "fixed",
+			amount: 5,
+			validFrom: new Date("2025-08-22T11:05:22.364Z"),
+			validTo: new Date("2025-09-21T11:05:22.364Z"),
+			active: true
+		},
+		{
+			code: "HASNATH25",
+			discountType: "percent",
+			amount: 25,
+			validFrom: new Date("2025-08-22T11:05:22.364Z"),
+			validTo: new Date("2025-09-21T11:05:22.364Z"),
+			active: true
+		},
+		{
+			code: "SUMMER10",
+			discountType: "percent",
+			amount: 10,
+			validFrom: new Date("2025-08-22T11:05:22.364Z"),
+			validTo: new Date("2025-09-21T11:05:22.364Z"),
+			active: true
+		}
 	]);
 
 	console.log("✅ Database seeded");
