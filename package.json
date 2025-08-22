@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node src/server.ts",
     "dev": "ts-node-dev src/server.ts",
-  "test": "jest"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "type": "commonjs",
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.4",
+    "@vercel/node": "^5.3.13",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
