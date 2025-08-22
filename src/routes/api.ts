@@ -1,4 +1,5 @@
 import { Router } from "express";
+import express from "express";
 import { addToCart, createCart, updateItem, removeItem, applyPromo, getAllCarts, getCart } from "../controllers/cart";
 import { listProducts } from "../controllers/catalogController";
 import { listPromos, applyPromo as applyPromoCode } from "../controllers/promoController";
@@ -7,6 +8,14 @@ import { createOrder as checkoutOrder } from "../controllers/orderController";
 import Variant from "../models/Variant";
 
 const router = Router();
+
+// Root route
+router.get('/', (req, res) => {
+  res.send('API is running');
+});
+
+// Favicon route
+router.get('/favicon.ico', (req, res) => res.status(204).end());
 
 // Cart routes
 router.post("/carts", createCart);
@@ -41,6 +50,12 @@ router.get("/variants", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err instanceof Error ? err.message : String(err) });
   }
+});
+
+// Global error handler
+router.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error(err);
+  res.status(500).json({ error: 'Internal Server Error' });
 });
 
 export default router;
