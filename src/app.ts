@@ -6,7 +6,7 @@
 // Express app setup
 import express from "express";
 import cookieParser from "cookie-parser";
-import router from "./routes/index";
+import router from "./routes/api";
 import { validate } from "./middleware/validate";
 import errorHandler from "./middleware/errorHandler";
 
